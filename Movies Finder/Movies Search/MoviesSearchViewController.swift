@@ -38,7 +38,6 @@ class MoviesSearchViewController: UIViewController {
     
     func searchMovies(title: String) {
         apiEngine.searchMovies(title) { moviesResult, response, error in
-            
             if let moviesResult = moviesResult, error == nil {
                 self.movies = moviesResult
             } else if let httpResponse = response as? HTTPURLResponse {
@@ -60,7 +59,25 @@ class MoviesSearchViewController: UIViewController {
         }
     }
     
+    func getMovie(id: String) {
+        apiEngine.getMovieInfo(imdbID: id) { movieInfo, response, error in
+            if let movieInfo = movieInfo, error == nil {
+                DispatchQueue.main.async {
+                    let vc = MovieDetailViewController(movieInfo)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showAlert(onViewController: self,
+                                   title: "Abrir película",
+                                   mssg: "No se pudieron recuperar los datos de la película. Compruebe su conexión a internet.")
+                }
+            }
+        }
+    }
+    
     func showInfo() {
+        movies.removeAll()
         labelInfo.isHidden = false
         tableMovies.isHidden = true
     }
@@ -98,8 +115,9 @@ extension MoviesSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellMovie = tableView.dequeueReusableCell(withIdentifier: "MovieSearchTableViewCell", for: indexPath) as! MovieSearchTableViewCell
-        
         let selectedmovie = movies[indexPath.row]
+        cellMovie.poster.sd_setImage(with: URL(string: selectedmovie.poster),
+                                     placeholderImage: UIImage(named: "posterPlaceholder"))
         cellMovie.title.text = selectedmovie.title
         cellMovie.year.text = selectedmovie.year
         
@@ -108,15 +126,19 @@ extension MoviesSearchViewController: UITableViewDataSource {
 }
 
 extension MoviesSearchViewController: UITableViewDelegate {
-
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedmovie = movies[indexPath.row]
-
-  }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedmovie = movies[indexPath.row]
+        getMovie(id: selectedmovie.imdbID)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
- }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }
 
 extension MoviesSearchViewController: UISearchBarDelegate {

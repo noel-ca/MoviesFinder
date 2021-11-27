@@ -10,9 +10,6 @@ import Foundation
 extension URLSession {
     fileprivate func codableTask<T: Codable>(with url: URLRequest, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         return self.dataTask(with: url) { data, response, error in
-            let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
-            print(outputStr ?? "empty response")
-            
             guard let data = data, error == nil else {
                 completionHandler(nil, response, error)
                 return
@@ -23,6 +20,10 @@ extension URLSession {
 
     func searchTask(with url: URLRequest, completionHandler: @escaping (SearchResult?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         return self.codableTask(with: url, completionHandler: completionHandler)
+    }
+    
+    func movieTask(with url: URLRequest, completionHandler: @escaping (Movie?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+       return self.codableTask(with: url, completionHandler: completionHandler)
     }
     
     // MARK: - Encoder and Decoder

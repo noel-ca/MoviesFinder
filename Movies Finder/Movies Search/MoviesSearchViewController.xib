@@ -31,7 +31,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-Dv-NYc">
-                    <rect key="frame" x="20" y="483.5" width="374" height="24"/>
+                    <rect key="frame" x="20" y="155" width="374" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                 <constraint firstItem="kFq-ME-CEx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gpt-IJ-0D0"/>
                 <constraint firstItem="qSX-Dv-NYc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="U7J-qK-UDH"/>
                 <constraint firstItem="2rb-Re-wlK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XgZ-dR-mzj"/>
-                <constraint firstItem="qSX-Dv-NYc" firstAttribute="centerY" secondItem="2rb-Re-wlK" secondAttribute="centerY" id="fik-6H-q8h"/>
+                <constraint firstItem="qSX-Dv-NYc" firstAttribute="top" secondItem="kFq-ME-CEx" secondAttribute="bottom" constant="60" id="o6l-d5-Gue"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2rb-Re-wlK" secondAttribute="trailing" id="p6w-lY-Hne"/>
                 <constraint firstAttribute="bottom" secondItem="2rb-Re-wlK" secondAttribute="bottom" id="zbv-PH-qXT"/>
             </constraints>

@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        let initVC = UINavigationController(rootViewController: MoviesSearchViewController())
         window?.windowScene = windowScene
-        window?.rootViewController = MoviesSearchViewController()
+        window?.rootViewController = initVC
         window?.makeKeyAndVisible()
     }
     

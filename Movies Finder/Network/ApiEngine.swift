@@ -20,8 +20,8 @@ class ApiEngine {
     func searchMovies(_ title: String,
                       completionHandler: @escaping ([SearchMovie]?, URLResponse?, Error?) -> Void) {
         
-        let path = "s=\(title)&type=\(TypeEnum.movie)"
-        guard let url = URL(string:"\(baseUrl!)\(path)") else { return }
+        guard let path = "s=\(title)&type=\(TypeEnum.movie)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string:"\(baseUrl!)\(path)") else { return }
         let request = URLRequest(url: url)
         
         let task = session.searchTask(with: request) {
@@ -40,6 +40,37 @@ class ApiEngine {
             
             if let searchResult = searchResult {
                 completionHandler(searchResult.search, response, error)
+                return
+            }
+
+            completionHandler(nil, response, error)
+        }
+        task.resume()
+    }
+    
+    func getMovieInfo(imdbID: String,
+                      completionHandler: @escaping (Movie?, URLResponse?, Error?) -> Void) {
+        
+        let path = "i=\(imdbID)&type=\(TypeEnum.movie)"
+        guard let url = URL(string:"\(baseUrl!)\(path)") else { return }
+        let request = URLRequest(url: url)
+        
+        let task = session.movieTask(with: request) {
+            movie, response, error in
+            
+            if (error != nil) {
+                print("Error WS GetMovieInfo: \(String(describing: error))\n\nResponse: \(String(describing: response))")
+                completionHandler(nil, response, error)
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                let code = httpResponse.statusCode
+                print("GetMovieInfo: \(code)")
+            }
+            
+            if let movie = movie {
+                completionHandler(movie, response, error)
                 return
             }
 
