@@ -51,7 +51,6 @@ class PosterViewController: UIViewController {
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // we got back an error!
             showAlert(onViewController: self,
                       title: "Error al guardar",
                       mssg: error.localizedDescription)

@@ -11,12 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="Movies_Finder" customModuleProvider="target">
             <connections>
-                <outlet property="labelDuration" destination="YUr-Oe-1xR" id="vZ9-HH-A0b"/>
-                <outlet property="labelGenre" destination="pLT-MF-G5Z" id="BJj-Vj-IkC"/>
-                <outlet property="labelPlot" destination="mhp-Dh-sn6" id="buF-Q7-lME"/>
-                <outlet property="labelReleaseDate" destination="9NK-UT-cNM" id="Coe-IC-Lfa"/>
-                <outlet property="labelTitle" destination="DWl-TJ-f8h" id="1UX-Z8-wPX"/>
-                <outlet property="labelWeb" destination="RAG-in-dbB" id="rnt-OA-bpU"/>
+                <outlet property="labelDuration" destination="YUr-Oe-1xR" id="iTB-EV-sV7"/>
+                <outlet property="labelGenre" destination="pLT-MF-G5Z" id="1yf-gb-7Df"/>
+                <outlet property="labelPlot" destination="mhp-Dh-sn6" id="TYL-9P-bnN"/>
+                <outlet property="labelReleaseDate" destination="9NK-UT-cNM" id="g7e-Lw-dpb"/>
+                <outlet property="labelTitle" destination="DWl-TJ-f8h" id="3tM-oz-dMe"/>
+                <outlet property="labelWeb" destination="RAG-in-dbB" id="ij6-Lu-O2Z"/>
                 <outlet property="poster" destination="qgc-8h-AbK" id="rTy-fi-k1m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,7 +35,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgc-8h-AbK">
                                     <rect key="frame" x="40" y="20" width="334" height="313.5"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-TJ-f8h">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-TJ-f8h" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                     <rect key="frame" x="40" y="353.5" width="334" height="32.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                                     <nil key="textColor"/>
@@ -53,7 +53,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releaseDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="9NK-UT-cNM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releaseDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="9NK-UT-cNM" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="21" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -70,7 +70,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="YUr-Oe-1xR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="YUr-Oe-1xR" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="21" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -87,7 +87,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="pLT-MF-G5Z">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="pLT-MF-G5Z" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="21" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -104,7 +104,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plot" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mhp-Dh-sn6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plot" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mhp-Dh-sn6" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="21" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -121,7 +121,7 @@
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="web" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-in-dbB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="web" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-in-dbB" customClass="UILabelCopyable" customModule="Movies_Finder" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="21" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>

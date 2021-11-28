@@ -18,13 +18,13 @@
 		59BED3B32752498E00D50C04 /* ApiEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3B22752498E00D50C04 /* ApiEngine.swift */; };
 		59BED3B627524B3A00D50C04 /* SearchMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3B527524B3A00D50C04 /* SearchMovies.swift */; };
 		59BED3B927524B8800D50C04 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3B827524B8800D50C04 /* URLSession.swift */; };
-		59BED3BC27524CFE00D50C04 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3BB27524CFE00D50C04 /* Paths.swift */; };
 		59BED3BF27528D4100D50C04 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3BD27528D4100D50C04 /* MovieDetailViewController.swift */; };
 		59BED3C027528D4100D50C04 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BED3BE27528D4100D50C04 /* MovieDetailViewController.xib */; };
 		59BED3C2275296C700D50C04 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3C1275296C700D50C04 /* Movie.swift */; };
 		59BED3C62752A07400D50C04 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3C52752A07400D50C04 /* UIViewController.swift */; };
 		59BED3C92752AE9000D50C04 /* PosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3C72752AE9000D50C04 /* PosterViewController.swift */; };
 		59BED3CA2752AE9000D50C04 /* PosterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BED3C82752AE9000D50C04 /* PosterViewController.xib */; };
+		59BED3CC2753628600D50C04 /* UILabelCopyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BED3CB2753628600D50C04 /* UILabelCopyable.swift */; };
 		A41680DBE872C46D3206E3D3 /* Pods_Movies_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CE2D04FB710C4D6171CBFC /* Pods_Movies_Finder.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +42,13 @@
 		59BED3B22752498E00D50C04 /* ApiEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEngine.swift; sourceTree = "<group>"; };
 		59BED3B527524B3A00D50C04 /* SearchMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovies.swift; sourceTree = "<group>"; };
 		59BED3B827524B8800D50C04 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
-		59BED3BB27524CFE00D50C04 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		59BED3BD27528D4100D50C04 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		59BED3BE27528D4100D50C04 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		59BED3C1275296C700D50C04 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		59BED3C52752A07400D50C04 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		59BED3C72752AE9000D50C04 /* PosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewController.swift; sourceTree = "<group>"; };
 		59BED3C82752AE9000D50C04 /* PosterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterViewController.xib; sourceTree = "<group>"; };
+		59BED3CB2753628600D50C04 /* UILabelCopyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelCopyable.swift; sourceTree = "<group>"; };
 		712B3EEA78AB4E1DABC2D60E /* Pods-Movies Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Finder.debug.xcconfig"; path = "Target Support Files/Pods-Movies Finder/Pods-Movies Finder.debug.xcconfig"; sourceTree = "<group>"; };
 		D6541E3D6A6793AE20CE2575 /* Pods-Movies Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Finder.release.xcconfig"; path = "Target Support Files/Pods-Movies Finder/Pods-Movies Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F9CE2D04FB710C4D6171CBFC /* Pods_Movies_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,9 +162,17 @@
 			isa = PBXGroup;
 			children = (
 				59BED3B727524B7800D50C04 /* Extensions */,
-				59BED3BB27524CFE00D50C04 /* Paths.swift */,
+				59BED3CD2753729800D50C04 /* Components */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		59BED3CD2753729800D50C04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				59BED3CB2753628600D50C04 /* UILabelCopyable.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		76B802A3FB7F64D1F9D1C25F /* Frameworks */ = {
@@ -296,13 +304,13 @@
 				59BED3942752398C00D50C04 /* AppDelegate.swift in Sources */,
 				59BED3B927524B8800D50C04 /* URLSession.swift in Sources */,
 				59BED3AB27523E7600D50C04 /* MoviesSearchViewController.swift in Sources */,
+				59BED3CC2753628600D50C04 /* UILabelCopyable.swift in Sources */,
 				59BED3C62752A07400D50C04 /* UIViewController.swift in Sources */,
 				59BED3AF2752440100D50C04 /* MovieSearchTableViewCell.swift in Sources */,
 				59BED3C92752AE9000D50C04 /* PosterViewController.swift in Sources */,
 				59BED3C2275296C700D50C04 /* Movie.swift in Sources */,
 				59BED3962752398C00D50C04 /* SceneDelegate.swift in Sources */,
 				59BED3B627524B3A00D50C04 /* SearchMovies.swift in Sources */,
-				59BED3BC27524CFE00D50C04 /* Paths.swift in Sources */,
 				59BED3BF27528D4100D50C04 /* MovieDetailViewController.swift in Sources */,
 				59BED3B32752498E00D50C04 /* ApiEngine.swift in Sources */,
 			);

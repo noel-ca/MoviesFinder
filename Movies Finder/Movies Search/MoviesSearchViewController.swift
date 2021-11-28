@@ -31,6 +31,7 @@ class MoviesSearchViewController: UIViewController {
         tableMovies.dataSource = self
         tableMovies.rowHeight = UITableView.automaticDimension
         searchMovies.delegate = self
+        searchMovies.becomeFirstResponder()
         showInitInfo()
     }
 
@@ -87,6 +88,11 @@ class MoviesSearchViewController: UIViewController {
         tableMovies.isHidden = false
     }
     
+    func removeSearch() {
+        movies.removeAll()
+        showInitInfo()
+    }
+    
     func showInitInfo() {
         labelInfo.text = "Busque una película por su título"
         showInfo()
@@ -95,11 +101,6 @@ class MoviesSearchViewController: UIViewController {
     func showConnectionProblem() {
         labelInfo.text = "Problema de red. Compruebe su conexión a internet."
         showInfo()
-    }
-    
-    func removeSearch() {
-        movies.removeAll()
-        showInitInfo()
     }
 }
 

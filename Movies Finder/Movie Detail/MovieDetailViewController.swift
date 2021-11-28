@@ -10,6 +10,18 @@ import SDWebImage
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var labelTitle: UILabelCopyable!
+    @IBOutlet weak var labelReleaseDate: UILabelCopyable!
+    @IBOutlet weak var labelDuration: UILabelCopyable!
+    @IBOutlet weak var labelGenre: UILabelCopyable!
+    @IBOutlet weak var labelPlot: UILabelCopyable!
+    @IBOutlet weak var labelWeb: UILabelCopyable! {
+        didSet {
+            labelWeb.textColor = UIColor.systemBlue
+            labelWeb.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                 action: #selector(openWeb)))
+        }
+    }
     @IBOutlet weak var poster: UIImageView! {
         didSet {
             poster.sd_setImage(with: URL(string: movie.poster),
@@ -17,24 +29,6 @@ class MovieDetailViewController: UIViewController {
             poster.isUserInteractionEnabled = true
             poster.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                                action: #selector(enlargePoster)))
-        }
-    }
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelReleaseDate: UILabel! {
-        didSet {
-            labelReleaseDate.isUserInteractionEnabled = true
-            labelReleaseDate.addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                                         action: #selector(copyRelease)))
-        }
-    }
-    @IBOutlet weak var labelDuration: UILabel!
-    @IBOutlet weak var labelGenre: UILabel!
-    @IBOutlet weak var labelPlot: UILabel!
-    @IBOutlet weak var labelWeb: UILabel! {
-        didSet {
-            labelWeb.textColor = UIColor.systemBlue
-            labelWeb.addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                                 action: #selector(openWeb)))
         }
     }
     
@@ -58,25 +52,17 @@ class MovieDetailViewController: UIViewController {
         labelGenre.text = movie.genre
         labelPlot.text = movie.plot
         labelWeb.text = movie.website
-        
-        
     }
     
     // MARK: Selectors
     
-    @objc func copyRelease() {
-        UIPasteboard.general.string = labelReleaseDate.text
-    }
-    
     @objc func enlargePoster() {
-//        DispatchQueue.main.async {
-            let vc = PosterViewController(self.movie.poster)
-            self.providesPresentationContextTransitionStyle = true
-            self.definesPresentationContext = true
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true, completion: nil)
-//        }
+        let vc = PosterViewController(self.movie.poster)
+        self.providesPresentationContextTransitionStyle = true
+        self.definesPresentationContext = true
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func openWeb() {
