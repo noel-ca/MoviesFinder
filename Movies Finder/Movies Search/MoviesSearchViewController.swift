@@ -12,8 +12,10 @@ class MoviesSearchViewController: UIViewController {
     @IBOutlet weak var searchMovies: UISearchBar!
     @IBOutlet weak var tableMovies: UITableView!
     @IBOutlet weak var labelInfo: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private let apiEngine = ApiEngine.shared
+    private var searchTimer: Timer?
     private var movies = [SearchMovie]() {
         didSet {
             DispatchQueue.main.async {
@@ -32,18 +34,24 @@ class MoviesSearchViewController: UIViewController {
         tableMovies.rowHeight = UITableView.automaticDimension
         searchMovies.delegate = self
         searchMovies.becomeFirstResponder()
+        spinner.isHidden = true
         showInitInfo()
     }
 
     // MARK: Functions
     
-    func searchMovies(title: String) {
+    @objc func searchMovies(_ timer: Timer) {
+        guard let title = timer.userInfo as? String else { return }
+        
+        spinner.isHidden = false
         apiEngine.searchMovies(title) { moviesResult, response, error in
-            if let moviesResult = moviesResult, error == nil {
-                self.movies = moviesResult
-            } else if let httpResponse = response as? HTTPURLResponse {
-                let code = httpResponse.statusCode
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.spinner.isHidden = true
+                if let moviesResult = moviesResult, error == nil {
+                    self.hideInfo()
+                    self.movies = moviesResult
+                } else if let httpResponse = response as? HTTPURLResponse {
+                    let code = httpResponse.statusCode
                     switch code {
                     case 200:
                         self.showInfo()
@@ -51,9 +59,7 @@ class MoviesSearchViewController: UIViewController {
                     default:
                         self.showConnectionProblem()
                     }
-                }
-            } else {
-                DispatchQueue.main.async {
+                } else {
                     self.showConnectionProblem()
                 }
             }
@@ -146,8 +152,17 @@ extension MoviesSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-            searchMovies(title: searchText)
-            hideInfo()
+            if searchTimer != nil {
+                searchTimer?.invalidate()
+                searchTimer = nil
+            }
+            
+            searchTimer = Timer.scheduledTimer(timeInterval: 0.6,
+                                               target: self,
+                                               selector: #selector(searchMovies(_:)),
+                                               userInfo: searchText,
+                                               repeats: false)
+
         } else {
             removeSearch()
         }

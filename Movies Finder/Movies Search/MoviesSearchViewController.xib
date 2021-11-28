@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="labelInfo" destination="qSX-Dv-NYc" id="nFe-Of-Fhd"/>
                 <outlet property="searchMovies" destination="kFq-ME-CEx" id="2P8-Of-25k"/>
+                <outlet property="spinner" destination="PYo-4K-4r0" id="Mgw-TM-vFu"/>
                 <outlet property="tableMovies" destination="2rb-Re-wlK" id="gaQ-uX-F1m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,6 +37,9 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PYo-4K-4r0">
+                    <rect key="frame" x="197" y="115" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,9 +50,11 @@
                 <constraint firstItem="2rb-Re-wlK" firstAttribute="top" secondItem="kFq-ME-CEx" secondAttribute="bottom" id="GQF-Pw-B4y"/>
                 <constraint firstItem="kFq-ME-CEx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gpt-IJ-0D0"/>
                 <constraint firstItem="qSX-Dv-NYc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="U7J-qK-UDH"/>
+                <constraint firstItem="PYo-4K-4r0" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WBH-SC-i9p"/>
                 <constraint firstItem="2rb-Re-wlK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XgZ-dR-mzj"/>
                 <constraint firstItem="qSX-Dv-NYc" firstAttribute="top" secondItem="kFq-ME-CEx" secondAttribute="bottom" constant="60" id="o6l-d5-Gue"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2rb-Re-wlK" secondAttribute="trailing" id="p6w-lY-Hne"/>
+                <constraint firstItem="PYo-4K-4r0" firstAttribute="top" secondItem="kFq-ME-CEx" secondAttribute="bottom" constant="20" id="yOh-li-hAJ"/>
                 <constraint firstAttribute="bottom" secondItem="2rb-Re-wlK" secondAttribute="bottom" id="zbv-PH-qXT"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
